@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { ChevronRight, ChevronLeft, Upload, Zap, Flame, Home, Users, Clock, MessageCircle, Phone, Mail, MapPin, Calendar, User, FileText, Send, CheckCircle, Shield, Info } from 'lucide-react';
-import jsPDF from 'jspdf';
 
 interface FormData {
   supplyType: string;
@@ -26,6 +25,7 @@ interface FormData {
   uploadedFile?: File;
   acceptsTerms: boolean;
   acceptsMarketing: boolean;
+  userIP?: string;
 }
 
 const initialFormData: FormData = {
@@ -50,7 +50,8 @@ const initialFormData: FormData = {
   province: '',
   locality: '',
   acceptsTerms: false,
-  acceptsMarketing: false
+  acceptsMarketing: false,
+  userIP: ''
 };
 
 const questions = [
@@ -195,130 +196,24 @@ export default function ComparisonForm() {
     setFormData(prev => ({ ...prev, uploadedFile: file }));
   };
 
-  const generatePDF = () => {
-    const doc = new jsPDF();
-    const pageWidth = doc.internal.pageSize.width;
-    const margin = 20;
-    let yPosition = 30;
-
-    // Header
-    doc.setFontSize(20);
-    doc.setFont('helvetica', 'bold');
-    doc.text('SOLICITUD DE COMPARATIVA ENERGÉTICA', pageWidth / 2, yPosition, { align: 'center' });
-    
-    yPosition += 20;
-    doc.setFontSize(12);
-    doc.setFont('helvetica', 'normal');
-    doc.text(`Fecha: ${new Date().toLocaleDateString('es-ES')}`, margin, yPosition);
-    doc.text(`Hora: ${new Date().toLocaleTimeString('es-ES')}`, pageWidth - margin - 40, yPosition);
-
-    yPosition += 20;
-
-    // Personal Data
-    doc.setFontSize(14);
-    doc.setFont('helvetica', 'bold');
-    doc.text('DATOS PERSONALES', margin, yPosition);
-    yPosition += 10;
-
-    doc.setFontSize(10);
-    doc.setFont('helvetica', 'normal');
-    const personalInfo = [
-      `Nombre completo: ${formData.firstName} ${formData.lastName}`,
-      `Fecha de nacimiento: ${formData.birthDate}`,
-      `Género: ${formData.gender}`,
-      `Teléfono: ${formData.phone}`,
-      `Email: ${formData.email}`,
-      `Dirección: ${formData.address}`,
-      `Código Postal: ${formData.postalCode}`,
-      `Municipio: ${formData.municipality}`,
-      `Provincia: ${formData.province}`,
-      `Localidad: ${formData.locality}`
-    ];
-
-    personalInfo.forEach(info => {
-      doc.text(info, margin, yPosition);
-      yPosition += 6;
-    });
-
-    yPosition += 10;
-
-    // Supply Information
-    doc.setFontSize(14);
-    doc.setFont('helvetica', 'bold');
-    doc.text('INFORMACIÓN DEL SUMINISTRO', margin, yPosition);
-    yPosition += 10;
-
-    doc.setFontSize(10);
-    doc.setFont('helvetica', 'normal');
-    const supplyInfo = [
-      `Tipo de suministro: ${formData.supplyType}`,
-      `Estado suministros: ${formData.activeSupplies}`,
-      `Último cambio: ${formData.lastChange}`,
-      `Tiene factura: ${formData.hasBill}`,
-      `Potencia contratada: ${formData.contractedPower}`,
-      `Horario de consumo: ${formData.consumptionSchedule}`,
-      ...(formData.gasUsage ? [`Uso del gas: ${formData.gasUsage}`] : []),
-      `Personas en vivienda: ${formData.residents}`,
-      `Motivación: ${formData.motivation}`
-    ];
-
-    supplyInfo.forEach(info => {
-      doc.text(info, margin, yPosition);
-      yPosition += 6;
-    });
-
-    yPosition += 15;
-
-    // Company Information
-    doc.setFontSize(12);
-    doc.setFont('helvetica', 'bold');
-    doc.text('DATOS DE LA EMPRESA', margin, yPosition);
-    yPosition += 10;
-
-    doc.setFontSize(9);
-    doc.setFont('helvetica', 'normal');
-    const companyInfo = [
-      'WASABI TRADER S.L.',
-      'CIF: B12345678',
-      'Dirección: POLÍGONO CAMPOLLANO - CALLE A, 7. 02006, ALBACETE (ALBACETE), ESPAÑA',
-      'Teléfono: +34 621 50 83 00',
-      'Email: energiaverdewasabi@gmail.com',
-      'Delegado de Protección de Datos: energiaverdewasabi@gmail.com'
-    ];
-
-    companyInfo.forEach(info => {
-      doc.text(info, margin, yPosition);
-      yPosition += 5;
-    });
-
-    yPosition += 10;
-
-    // Legal Information
-    doc.setFontSize(8);
-    doc.setFont('helvetica', 'normal');
-    const legalText = [
-      'INFORMACIÓN SOBRE PROTECCIÓN DE DATOS:',
-      'Sus datos personales serán tratados por WASABI TRADER S.L. con la finalidad de gestionar su solicitud',
-      'de comparativa energética y contactarle para ofrecerle nuestros servicios. La base legal es su',
-      'consentimiento. Puede ejercer sus derechos de acceso, rectificación, supresión, portabilidad,',
-      'limitación u oposición dirigiéndose a energiaverdewasabi@gmail.com'
-    ];
-
-    legalText.forEach(text => {
-      doc.text(text, margin, yPosition, { maxWidth: pageWidth - 2 * margin });
-      yPosition += 4;
-    });
-
-    return doc;
+  const getUserIP = async () => {
+    try {
+      const response = await fetch('https://api.ipify.org?format=json');
+      const data = await response.json();
+      return data.ip;
+    } catch (error) {
+      console.error('Error getting IP:', error);
+      return 'No detectada';
+    }
   };
 
   const sendToWhatsApp = async () => {
     setIsSubmitting(true);
     
     try {
-      // Generate PDF
-      const pdf = generatePDF();
-      const pdfBlob = pdf.output('blob');
+      // Get user IP
+      const userIP = await getUserIP();
+      setFormData(prev => ({ ...prev, userIP }));
       
       const message = `🔥 NUEVA CONSULTA COMPARADOR ENERGÉTICO
 
@@ -338,23 +233,15 @@ ${formData.gasUsage ? `• Uso gas: ${formData.gasUsage}` : ''}
 • Personas en vivienda: ${formData.residents}
 • Motivación: ${formData.motivation}
 
-📄 PDF generado con datos completos
+🌐 INFORMACIÓN TÉCNICA:
+• IP del usuario: ${userIP}
+• Origen: wasabitrader.com
 🕐 Fecha: ${new Date().toLocaleString('es-ES')}
 
-⚠️ IMPORTANTE: Se ha generado un PDF con todos los datos del lead para verificación.`;
+📋 Lead verificado y completo para seguimiento.`;
 
       const whatsappUrl = `https://wa.me/34621508300?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
-      
-      // Download PDF for manual attachment
-      const url = URL.createObjectURL(pdfBlob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `Lead_${formData.firstName}_${formData.lastName}_${new Date().toISOString().split('T')[0]}.pdf`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
       
       setIsCompleted(true);
     } catch (error) {
@@ -397,7 +284,7 @@ ${formData.gasUsage ? `• Uso gas: ${formData.gasUsage}` : ''}
             ¡Formulario Enviado!
           </h2>
           <p className="text-gray-700 mb-6">
-            Tus datos han sido enviados correctamente y se ha generado un PDF con toda la información. Un experto se pondrá en contacto contigo muy pronto.
+            Tus datos han sido enviados correctamente. Un experto se pondrá en contacto contigo muy pronto.
           </p>
           <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
             <p className="text-blue-700 font-bold text-sm">
