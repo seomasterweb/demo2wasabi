@@ -44,7 +44,7 @@ export default function Header() {
                 <Phone className="w-4 h-4 text-blue-600" />
                 <span className="font-black text-sm text-gray-900">900 123 456</span>
               </div>
-              <a href="https://form.typeform.com/to/zP12qzQH" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-lg font-black text-sm hover:from-blue-400 hover:to-blue-500 transition-colors">
+              <a href="#formulario" className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-lg font-black text-sm hover:from-blue-400 hover:to-blue-500 transition-colors">
                 CONSULTA GRATUITA
               </a>
             </nav>
@@ -75,7 +75,7 @@ export default function Header() {
                 <Phone className="w-4 h-4" />
                 <span className="font-black text-base">900 123 456</span>
               </div>
-              <a href="https://form.typeform.com/to/zP12qzQH" target="_blank" rel="noopener noreferrer" className="block w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 rounded-lg font-black text-base text-center">
+              <a href="#formulario" className="block w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 rounded-lg font-black text-base text-center">
                 CONSULTA GRATUITA
               </a>
             </div>

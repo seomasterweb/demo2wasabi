@@ -66,7 +66,7 @@ export default function ComparisonSection() {
                 </div>
               </div>
               
-              <a href="https://form.typeform.com/to/zP12qzQH" target="_blank" rel="noopener noreferrer" className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 rounded-xl font-black text-base hover:from-blue-400 hover:to-blue-500 transition-colors flex items-center justify-center space-x-2 shadow-lg">
+              <a href="#formulario" className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 rounded-xl font-black text-base hover:from-blue-400 hover:to-blue-500 transition-colors flex items-center justify-center space-x-2 shadow-lg">
                 <span>COMPARAR TARIFAS AHORA</span>
                 <ArrowRight className="w-5 h-5" />
               </a>

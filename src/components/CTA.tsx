@@ -51,7 +51,7 @@ export default function CTA() {
                 </div>
               </div>
               
-              <a href="https://form.typeform.com/to/zP12qzQH" target="_blank" rel="noopener noreferrer" className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 rounded-xl font-black text-base hover:from-blue-400 hover:to-blue-500 transition-colors flex items-center justify-center space-x-2 shadow-lg">
+              <a href="#formulario" className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 rounded-xl font-black text-base hover:from-blue-400 hover:to-blue-500 transition-colors flex items-center justify-center space-x-2 shadow-lg">
                 <span>EMPEZAR AHORA</span>
                 <ArrowRight className="w-5 h-5" />
               </a>
@@ -83,7 +83,7 @@ export default function CTA() {
                 </div>
               </div>
               
-              <a href="https://form.typeform.com/to/zP12qzQH" target="_blank" rel="noopener noreferrer" className="w-full border-2 border-blue-500 text-blue-600 py-3 rounded-xl font-black text-base hover:bg-blue-50 transition-colors flex items-center justify-center space-x-2">
+              <a href="https://wa.me/34621508300?text=Hola,%20quiero%20comparar%20mi%20factura%20de%20luz%20directamente%20con%20un%20experto" target="_blank" rel="noopener noreferrer" className="w-full border-2 border-blue-500 text-blue-600 py-3 rounded-xl font-black text-base hover:bg-blue-50 transition-colors flex items-center justify-center space-x-2">
                 <Phone className="w-5 h-5" />
                 <span>CONTACTAR EXPERTO</span>
               </a>

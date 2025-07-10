@@ -5,6 +5,7 @@ import Features from './components/Features';
 import ComparisonSection from './components/ComparisonSection';
 import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
+import ComparisonForm from './components/ComparisonForm';
 import Footer from './components/Footer';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <ComparisonSection />
       <Testimonials />
       <CTA />
+      <ComparisonForm />
       <Footer />
     </div>
   );
