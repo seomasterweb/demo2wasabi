@@ -62,38 +62,38 @@ export default function CTA() {
                 <Phone className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg sm:text-xl font-black text-gray-900 mb-3">
-                Habla con un Experto
+                Completa el Formulario
               </h3>
               <p className="text-gray-700 mb-4 sm:mb-6 text-xs sm:text-sm">
-                <span className="text-blue-600 font-black">+100 asesores expertos</span> disponibles
+                <span className="text-blue-600 font-black">Proceso rápido</span> y personalizado
               </p>
               
               <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 text-xs sm:text-sm">
                 <div className="flex items-center justify-center text-blue-600">
-                  <Award className="w-4 h-4 mr-2" />
-                  <span className="font-bold">12+ años experiencia</span>
+                  <Clock className="w-4 h-4 mr-2" />
+                  <span className="font-bold">5 minutos</span>
                 </div>
                 <div className="flex items-center justify-center text-blue-600">
-                  <Phone className="w-4 h-4 mr-2" />
-                  <span className="font-bold">Atención personalizada</span>
+                  <Brain className="w-4 h-4 mr-2" />
+                  <span className="font-bold">Con IA</span>
                 </div>
                 <div className="flex items-center justify-center text-blue-600">
                   <Target className="w-4 h-4 mr-2" />
-                  <span className="font-bold">Expertos sector</span>
+                  <span className="font-bold">Ahorro garantizado</span>
                 </div>
               </div>
               
-              <a href="https://wa.me/34621508300?text=Hola,%20quiero%20comparar%20mi%20factura%20de%20luz%20directamente%20con%20un%20experto" target="_blank" rel="noopener noreferrer" className="w-full border-2 border-blue-500 text-blue-600 py-3 rounded-xl font-black text-sm sm:text-base hover:bg-blue-50 transition-colors flex items-center justify-center space-x-2">
-                <Phone className="w-5 h-5" />
-                <span>CONTACTAR EXPERTO</span>
+              <a href="#formulario" className="w-full border-2 border-blue-500 text-blue-600 py-3 rounded-xl font-black text-sm sm:text-base hover:bg-blue-50 transition-colors flex items-center justify-center space-x-2">
+                <ArrowRight className="w-5 h-5" />
+                <span>IR AL FORMULARIO</span>
               </a>
             </div>
           </div>
         </div>
         
         <div className="inline-flex items-center bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-xl font-black text-base shadow-lg">
-          <Shield className="w-5 h-5 mr-2" />
-          AHORRO GARANTIZADO
+          <a href="#formulario" className="inline-flex items-center bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-xl font-black text-base shadow-lg hover:from-blue-400 hover:to-blue-500 transition-colors">
+          </a>
         </div>
       </div>
     </section>

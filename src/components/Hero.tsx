@@ -75,8 +75,8 @@ export default function Hero() {
                 <span className="text-sm sm:text-base">COMPARAR GRATIS</span>
                 <ArrowRight className="w-5 h-5" />
               </a>
-              <a href="https://wa.me/34621508300?text=Hola,%20quiero%20comparar%20mi%20factura%20de%20luz%20directamente%20con%20un%20experto" target="_blank" rel="noopener noreferrer" className="border-2 border-blue-500 text-blue-600 px-6 py-4 rounded-xl font-black text-base hover:bg-blue-50 transition-colors">
-                <span className="text-sm sm:text-base">HABLAR CON EXPERTO</span>
+              <a href="#formulario" className="border-2 border-blue-500 text-blue-600 px-6 py-4 rounded-xl font-black text-base hover:bg-blue-50 transition-colors">
+                <span className="text-sm sm:text-base">EMPEZAR FORMULARIO</span>
               </a>
             </div>
             

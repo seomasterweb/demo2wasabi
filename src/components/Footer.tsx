@@ -72,10 +72,10 @@ export default function Footer() {
           </div>
           
           <div className="text-center">
-            <div className="inline-flex items-center bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-lg font-black text-sm">
+            <a href="#formulario" className="inline-flex items-center bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-lg font-black text-sm hover:from-blue-400 hover:to-blue-500 transition-colors">
               <Shield className="w-4 h-4 mr-2" />
               AHORRO GARANTIZADO
-            </div>
+            </a>
           </div>
         </div>
       </div>

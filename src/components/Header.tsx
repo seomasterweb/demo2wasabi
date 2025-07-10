@@ -45,7 +45,7 @@ export default function Header() {
                 <span className="font-black text-sm text-gray-900">900 123 456</span>
               </div>
               <a href="#formulario" className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-2 rounded-lg font-black text-sm hover:from-blue-400 hover:to-blue-500 transition-colors">
-                CONSULTA GRATUITA
+                EMPEZAR FORMULARIO
               </a>
             </nav>
           </div>
@@ -76,7 +76,7 @@ export default function Header() {
                 <span className="font-black text-base">900 123 456</span>
               </div>
               <a href="#formulario" className="block w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 rounded-lg font-black text-base text-center">
-                CONSULTA GRATUITA
+                EMPEZAR FORMULARIO
               </a>
             </div>
           </div>
