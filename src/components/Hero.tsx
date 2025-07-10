@@ -13,38 +13,38 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-white via-gray-50 to-blue-50 overflow-hidden">
+    <section className="relative min-h-screen bg-white overflow-hidden">
       {/* Simplified Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-white"></div>
+      <div className="absolute inset-0 bg-white"></div>
       
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-12 sm:pb-16 lg:pb-20">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-12 lg:pb-16">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
-          <div className="space-y-6 sm:space-y-8">
+          <div className="space-y-4 sm:space-y-6 lg:space-y-8">
             <div className="space-y-4 sm:space-y-6">
               <div className="inline-flex items-center bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 sm:px-6 lg:px-8 py-2 sm:py-3 lg:py-4 rounded-full text-sm sm:text-base lg:text-lg font-black shadow-2xl shadow-blue-500/25">
                 <Shield className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 AHORRO GARANTIZADO
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
                 <span className="block">Compara y</span>
                 <span className="block bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text text-transparent">
                   Ahorra
                 </span>
-                <span className="block text-2xl sm:text-3xl lg:text-4xl text-gray-700 font-bold mt-2">
+                <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-700 font-bold mt-2">
                   en Luz y Gas
                 </span>
               </h1>
               
               <div className="space-y-3 sm:space-y-4">
-                <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
-                  <span className="text-blue-600 font-black text-xl sm:text-2xl">+12 años de experiencia</span> y 
-                  <span className="text-blue-600 font-black text-xl sm:text-2xl"> +100 asesores expertos</span> con IA avanzada.
+                <p className="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed">
+                  <span className="text-blue-600 font-black text-lg sm:text-xl lg:text-2xl">+12 años de experiencia</span> y 
+                  <span className="text-blue-600 font-black text-lg sm:text-xl lg:text-2xl"> +100 asesores expertos</span> con IA avanzada.
                 </p>
               </div>
             </div>
             
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div className="bg-white border border-blue-200 rounded-xl p-4 shadow-sm">
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
@@ -72,15 +72,15 @@ export default function Hero() {
             
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="#formulario" className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-4 rounded-xl font-black text-base hover:from-blue-400 hover:to-blue-500 transition-colors flex items-center justify-center space-x-2 shadow-lg">
-                <span>COMPARAR GRATIS</span>
+                <span className="text-sm sm:text-base">COMPARAR GRATIS</span>
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a href="https://wa.me/34621508300?text=Hola,%20quiero%20comparar%20mi%20factura%20de%20luz%20directamente%20con%20un%20experto" target="_blank" rel="noopener noreferrer" className="border-2 border-blue-500 text-blue-600 px-6 py-4 rounded-xl font-black text-base hover:bg-blue-50 transition-colors">
-                HABLAR CON EXPERTO
+                <span className="text-sm sm:text-base">HABLAR CON EXPERTO</span>
               </a>
             </div>
             
-            <div className="flex items-center gap-4 text-sm">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-sm">
               <div className="flex items-center space-x-3">
                 <div className="flex space-x-1">
                   {[...Array(5)].map((_, i) => (
@@ -89,12 +89,12 @@ export default function Hero() {
                 </div>
                 <span className="text-gray-900 font-black">4.9/5</span>
               </div>
-              <div className="w-1 h-1 bg-blue-500 rounded-full"></div>
+              <div className="hidden sm:block w-1 h-1 bg-blue-500 rounded-full"></div>
               <span className="text-blue-600 font-black">100% Gratuito</span>
             </div>
           </div>
           
-          <div className="relative">
+          <div className="relative mt-8 lg:mt-0">
             <div className="bg-white border border-blue-200 rounded-2xl p-6 shadow-lg">
               
               <div className="space-y-6">
@@ -131,7 +131,7 @@ export default function Hero() {
                     href="#formulario"
                     className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 rounded-xl font-black text-base hover:from-blue-400 hover:to-blue-500 transition-colors flex items-center justify-center space-x-2"
                   >
-                    <span>CALCULAR AHORRO</span>
+                    <span className="text-sm sm:text-base">CALCULAR AHORRO</span>
                     <ArrowRight className="w-5 h-5" />
                   </a>
                 </div>
@@ -139,7 +139,7 @@ export default function Hero() {
             </div>
             
             {/* Simplified floating elements */}
-            <div className="hidden lg:block absolute -top-4 -right-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-2 rounded-full text-xs font-black shadow-lg">
+            <div className="hidden xl:block absolute -top-4 -right-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-2 rounded-full text-xs font-black shadow-lg">
               <div className="flex items-center space-x-1">
                 <Target className="w-3 h-3" />
                 <span>200€/año</span>

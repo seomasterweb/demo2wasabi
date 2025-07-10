@@ -52,7 +52,7 @@ export default function Header() {
           
           <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg border border-blue-200 bg-white"
+            className="lg:hidden p-2 rounded-lg border border-blue-200 bg-white hover:bg-blue-50 transition-colors"
             aria-label="Toggle mobile menu"
           >
             {isMobileMenuOpen ? (
@@ -66,12 +66,12 @@ export default function Header() {
       
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t border-blue-200">
+        <div className="lg:hidden bg-white border-t border-blue-200 shadow-lg">
           <div className="px-4 py-4 space-y-4">
-            <a href="#comparador" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-700 font-bold text-base hover:text-blue-600 transition-colors">Comparador IA</a>
-            <a href="#testimonios" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-700 font-bold text-base hover:text-blue-600 transition-colors">Testimonios</a>
+            <a href="#comparador" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-700 font-bold text-base hover:text-blue-600 transition-colors py-2">Comparador IA</a>
+            <a href="#testimonios" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-700 font-bold text-base hover:text-blue-600 transition-colors py-2">Testimonios</a>
             <div className="pt-4 border-t border-blue-200">
-              <div className="flex items-center space-x-2 text-blue-600 mb-4">
+              <div className="flex items-center justify-center space-x-2 text-blue-600 mb-4 bg-blue-50 rounded-lg py-3">
                 <Phone className="w-4 h-4" />
                 <span className="font-black text-base">900 123 456</span>
               </div>

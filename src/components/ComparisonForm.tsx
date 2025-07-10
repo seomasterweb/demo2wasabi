@@ -277,12 +277,12 @@ ${formData.gasUsage ? `• Uso gas: ${formData.gasUsage}` : ''}
   const isPersonalDataStep = currentStep >= filteredQuestions.length;
 
   return (
-    <section id="formulario" className="min-h-screen bg-gradient-to-br from-blue-50 to-white py-12">
+    <section id="formulario" className="min-h-screen bg-white py-8 sm:py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Progress Bar */}
         <div className="mb-8">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-2xl font-black text-gray-900">
+            <h2 className="text-xl sm:text-2xl font-black text-gray-900">
               Comparador Inteligente
             </h2>
             <span className="text-sm font-bold text-blue-600">
@@ -297,20 +297,20 @@ ${formData.gasUsage ? `• Uso gas: ${formData.gasUsage}` : ''}
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl min-h-[500px] flex flex-col">
+        <div className="bg-gray-50 rounded-2xl p-4 sm:p-6 lg:p-8 shadow-xl min-h-[400px] sm:min-h-[500px] flex flex-col">
           {!isPersonalDataStep && currentQuestion ? (
             <>
               <div className="flex-1">
-                <h3 className="text-2xl sm:text-3xl font-black text-gray-900 mb-8 leading-tight">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-gray-900 mb-6 sm:mb-8 leading-tight">
                   {currentQuestion.title}
                 </h3>
 
                 {currentQuestion.id === 'hasBill' && formData.hasBill === 'subir-factura' && (
                   <div className="mb-6">
-                    <div className="border-2 border-dashed border-blue-300 rounded-xl p-8 text-center hover:border-blue-400 transition-colors">
+                    <div className="border-2 border-dashed border-blue-300 rounded-xl p-4 sm:p-8 text-center hover:border-blue-400 transition-colors">
                       <Upload className="w-12 h-12 text-blue-500 mx-auto mb-4" />
-                      <p className="text-gray-700 font-bold mb-2">Sube tu factura</p>
-                      <p className="text-gray-500 text-sm mb-4">PDF, JPG o PNG (máx. 10MB)</p>
+                      <p className="text-gray-700 font-bold mb-2 text-sm sm:text-base">Sube tu factura</p>
+                      <p className="text-gray-500 text-xs sm:text-sm mb-4">PDF, JPG o PNG (máx. 10MB)</p>
                       <input
                         type="file"
                         accept=".pdf,.jpg,.jpeg,.png"
@@ -320,7 +320,7 @@ ${formData.gasUsage ? `• Uso gas: ${formData.gasUsage}` : ''}
                       />
                       <label
                         htmlFor="file-upload"
-                        className="bg-blue-500 text-white px-6 py-2 rounded-lg font-bold cursor-pointer hover:bg-blue-600 transition-colors"
+                        className="bg-blue-500 text-white px-4 sm:px-6 py-2 rounded-lg font-bold cursor-pointer hover:bg-blue-600 transition-colors text-sm sm:text-base"
                       >
                         Seleccionar archivo
                       </label>
@@ -328,7 +328,7 @@ ${formData.gasUsage ? `• Uso gas: ${formData.gasUsage}` : ''}
                   </div>
                 )}
 
-                <div className="grid gap-4">
+                <div className="grid gap-3 sm:gap-4">
                   {currentQuestion.options?.map((option, index) => {
                     const Icon = option.icon;
                     const isSelected = formData[currentQuestion.id as keyof FormData] === option.value;
@@ -337,21 +337,21 @@ ${formData.gasUsage ? `• Uso gas: ${formData.gasUsage}` : ''}
                       <button
                         key={index}
                         onClick={() => handleChoice(currentQuestion.id, option.value)}
-                        className={`p-4 rounded-xl border-2 text-left transition-all duration-200 hover:scale-[1.02] ${
+                        className={`p-3 sm:p-4 rounded-xl border-2 text-left transition-all duration-200 hover:scale-[1.02] ${
                           isSelected
                             ? 'border-blue-500 bg-blue-50 shadow-lg'
                             : 'border-gray-200 hover:border-blue-300 hover:bg-blue-50'
                         }`}
                       >
-                        <div className="flex items-center space-x-4">
+                        <div className="flex items-center space-x-3 sm:space-x-4">
                           {Icon && (
-                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                            <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center ${
                               isSelected ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-600'
                             }`}>
-                              <Icon className="w-5 h-5" />
+                              <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                             </div>
                           )}
-                          <span className={`font-bold ${isSelected ? 'text-blue-700' : 'text-gray-700'}`}>
+                          <span className={`font-bold text-sm sm:text-base ${isSelected ? 'text-blue-700' : 'text-gray-700'}`}>
                             {option.label}
                           </span>
                         </div>
@@ -364,19 +364,19 @@ ${formData.gasUsage ? `• Uso gas: ${formData.gasUsage}` : ''}
           ) : (
             <>
               <div className="flex-1">
-                <h3 className="text-2xl sm:text-3xl font-black text-gray-900 mb-8">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-gray-900 mb-6 sm:mb-8">
                   Datos Personales
                 </h3>
-                <p className="text-gray-600 mb-8">
+                <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
                   Para completar tu comparativa personalizada, necesitamos algunos datos básicos.
                 </p>
 
-                <div className="grid sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   {personalDataFields.map((field) => {
                     const Icon = field.icon;
                     return (
                       <div key={field.id}>
-                        <label className="block text-sm font-bold text-gray-700 mb-2">
+                        <label className="block text-xs sm:text-sm font-bold text-gray-700 mb-2">
                           {field.label} {field.required && <span className="text-red-500">*</span>}
                         </label>
                         <div className="relative">
@@ -387,7 +387,7 @@ ${formData.gasUsage ? `• Uso gas: ${formData.gasUsage}` : ''}
                             <select
                               value={formData[field.id as keyof FormData] as string}
                               onChange={(e) => handleInputChange(field.id, e.target.value)}
-                              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                              className="w-full pl-10 pr-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
                               required={field.required}
                             >
                               <option value="">Seleccionar...</option>
@@ -400,7 +400,7 @@ ${formData.gasUsage ? `• Uso gas: ${formData.gasUsage}` : ''}
                               type={field.type}
                               value={formData[field.id as keyof FormData] as string}
                               onChange={(e) => handleInputChange(field.id, e.target.value)}
-                              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                              className="w-full pl-10 pr-4 py-2 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
                               required={field.required}
                             />
                           )}
@@ -410,11 +410,11 @@ ${formData.gasUsage ? `• Uso gas: ${formData.gasUsage}` : ''}
                   })}
                 </div>
 
-                <div className="mt-8">
+                <div className="mt-6 sm:mt-8">
                   <button
                     onClick={sendToWhatsApp}
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-4 rounded-xl font-black text-lg hover:from-green-400 hover:to-green-500 transition-colors flex items-center justify-center space-x-2 disabled:opacity-50"
+                    className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3 sm:py-4 rounded-xl font-black text-base sm:text-lg hover:from-green-400 hover:to-green-500 transition-colors flex items-center justify-center space-x-2 disabled:opacity-50"
                   >
                     {isSubmitting ? (
                       <>
@@ -434,11 +434,11 @@ ${formData.gasUsage ? `• Uso gas: ${formData.gasUsage}` : ''}
           )}
 
           {/* Navigation */}
-          <div className="flex justify-between items-center mt-8 pt-6 border-t border-gray-200">
+          <div className="flex justify-between items-center mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-200">
             <button
               onClick={goBack}
               disabled={currentStep === 0}
-              className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
             >
               <ChevronLeft className="w-5 h-5" />
               <span className="font-bold">Anterior</span>
@@ -448,7 +448,7 @@ ${formData.gasUsage ? `• Uso gas: ${formData.gasUsage}` : ''}
               <button
                 onClick={goNext}
                 disabled={!formData[currentQuestion?.id as keyof FormData]}
-                className="flex items-center space-x-2 bg-blue-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex items-center space-x-2 bg-blue-500 text-white px-4 sm:px-6 py-2 rounded-lg font-bold hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
               >
                 <span>Siguiente</span>
                 <ChevronRight className="w-5 h-5" />

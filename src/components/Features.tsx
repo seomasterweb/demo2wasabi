@@ -64,40 +64,40 @@ export default function Features() {
             LÍDERES DEL SECTOR
           </div>
           
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-12">
             {stats.map((stat, index) => (
-              <div key={index} className="bg-white border border-blue-200 rounded-xl p-4 shadow-sm">
+              <div key={index} className="bg-white border border-blue-200 rounded-xl p-3 sm:p-4 shadow-sm">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <stat.icon className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-2xl font-black text-gray-900 mb-1">{stat.number}</div>
-                <div className="text-gray-700 font-bold text-sm">{stat.label}</div>
+                <div className="text-xl sm:text-2xl font-black text-gray-900 mb-1">{stat.number}</div>
+                <div className="text-gray-700 font-bold text-xs sm:text-sm">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
 
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 mb-4">
             ¿Por qué elegir
             <span className="block bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
               Wasabi Trader?
             </span>
           </h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto px-4">
             <span className="text-blue-600 font-black">EXPERTOS CON AÑOS DE EXPERIENCIA</span> utilizando IA avanzada
           </p>
         </div>
         
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {features.slice(0, 3).map((feature, index) => (
-            <div key={index} className="bg-white border border-blue-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+            <div key={index} className="bg-white border border-blue-200 rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-4">
                 <feature.icon className="w-6 h-6 text-white" />
               </div>
               
-              <h3 className="text-lg font-black text-gray-900 mb-3">{feature.title}</h3>
-              <p className="text-gray-700 text-sm mb-4 leading-relaxed">{feature.description}</p>
+              <h3 className="text-base sm:text-lg font-black text-gray-900 mb-3">{feature.title}</h3>
+              <p className="text-gray-700 text-xs sm:text-sm mb-4 leading-relaxed">{feature.description}</p>
               
               <div className="flex items-center justify-between">
                 <div className="flex items-center text-blue-600">

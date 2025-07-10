@@ -39,21 +39,21 @@ export default function Testimonials() {
             CLIENTES SATISFECHOS
           </div>
           
-          <h2 className="text-3xl sm:text-4xl font-black text-gray-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 mb-4">
             Miles de clientes ya
             <span className="block bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
               confían en nosotros
             </span>
           </h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto px-4">
             <span className="text-blue-600 font-black">+12 años ayudando</span> a familias y empresas con 
             nuestro <span className="text-blue-600 font-black">equipo de +100 expertos</span>
           </p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white border border-blue-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+            <div key={index} className="bg-white border border-blue-200 rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex space-x-1">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -67,7 +67,7 @@ export default function Testimonials() {
               
               <div className="mb-4">
                 <Quote className="w-8 h-8 text-blue-500 mb-3" />
-                <p className="text-gray-700 text-sm leading-relaxed">{testimonial.comment}</p>
+                <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">{testimonial.comment}</p>
               </div>
               
               <div className="flex items-center">
@@ -86,14 +86,14 @@ export default function Testimonials() {
         </div>
         
         <div className="text-center">
-          <div className="inline-flex items-center bg-white border border-blue-200 rounded-xl px-6 py-3 shadow-sm">
+          <div className="inline-flex items-center bg-white border border-blue-200 rounded-xl px-4 sm:px-6 py-3 shadow-sm">
             <div className="flex space-x-1 mr-4">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="w-5 h-5 text-blue-500 fill-current" />
               ))}
             </div>
-            <span className="font-black text-gray-900 text-xl">4.9/5</span>
-            <span className="text-gray-700 ml-4 font-bold text-sm">+10,000 opiniones</span>
+            <span className="font-black text-gray-900 text-lg sm:text-xl">4.9/5</span>
+            <span className="text-gray-700 ml-2 sm:ml-4 font-bold text-xs sm:text-sm">+10,000 opiniones</span>
           </div>
         </div>
       </div>
